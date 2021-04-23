@@ -3,5 +3,6 @@
     "editor.formatOnSave": true,
     "vsintellicode.sql.completionsEnabled": false,
     "vsintellicode.python.completionsEnabled": false,
-    "vsintellicode.java.completionsEnabled": false
+    "vsintellicode.java.completionsEnabled": false,
+    "git.ignoreLimitWarning": true
 }
