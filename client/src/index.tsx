@@ -15,20 +15,20 @@ const client: ApolloClient<NormalizedCacheObject> = new ApolloClient({
 
 // ...ApolloClient instantiated here...
 
-client
-  .query({
-    query: gql`
-      query TestQuery {
-        launch(id: 56) {
-          id
-          mission {
-            name
-          }
-        }
-      }
-    `,
-  })
-  .then((result) => console.log(result));
+// client
+//   .query({
+//     query: gql`
+//       query TestQuery {
+//         launch(id: 56) {
+//           id
+//           mission {
+//             name
+//           }
+//         }
+//       }
+//     `,
+//   })
+//   .then((result) => console.log(result));
 
 ReactDOM.render(
   // <ApolloProvider client={client}>
