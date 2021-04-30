@@ -1,12 +1,12 @@
 import { blogs, items } from "./data";
-import { BlogAPI } from "./blogs";
+import { getBlogPosts } from "./blogs";
+import { get } from "https";
 
 // Resolvers define the technique for fetching the types defined in the
 // schema. This resolver retrieves books from the "books" array above.
-const blog = new BlogAPI();
 export const resolvers = {
   Query: {
     items: () => items,
-    blogs: () => blog,
+    blogs: () => getBlogPosts(),
   },
 };

@@ -17,6 +17,6 @@ export const typeDefs = gql`
   }
   type Query {
     items: [Item]
-    blogs: [BlogPostCollection]
+    blogs: [BlogPost]
   }
 `;

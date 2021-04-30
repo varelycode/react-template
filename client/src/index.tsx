@@ -10,25 +10,22 @@ import { cache } from "./cache";
 
 const client: ApolloClient<NormalizedCacheObject> = new ApolloClient({
   cache, // instance of in memory cache
-  uri: "http://localhost:4000/graphql", //uri of graphql server
+  uri: "http://localhost:4000", //uri of graphql server
 });
 
 // ...ApolloClient instantiated here...
 
-// client
-//   .query({
-//     query: gql`
-//       query TestQuery {
-//         launch(id: 56) {
-//           id
-//           mission {
-//             name
-//           }
-//         }
-//       }
-//     `,
-//   })
-//   .then((result) => console.log(result));
+client
+  .query({
+    query: gql`
+      query TestQuery {
+        blogs {
+          title
+        }
+      }
+    `,
+  })
+  .then((result) => console.log(result.data));
 
 ReactDOM.render(
   // <ApolloProvider client={client}>
