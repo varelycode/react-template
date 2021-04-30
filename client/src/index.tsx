@@ -5,28 +5,18 @@ import App from "./App";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 
-import { ApolloClient, gql, NormalizedCacheObject } from "@apollo/client";
-import { cache } from "./cache";
+import { makeQuery } from "./apollo/index";
+import { gql } from "@apollo/client";
 
-const client: ApolloClient<NormalizedCacheObject> = new ApolloClient({
-  cache, // instance of in memory cache
-  uri: "http://localhost:4000", //uri of graphql server
-});
+const query = gql`
+  query TestQuery {
+    blogs {
+      title
+    }
+  }
+`;
 
-// ...ApolloClient instantiated here...
-
-client
-  .query({
-    query: gql`
-      query TestQuery {
-        blogs {
-          title
-        }
-      }
-    `,
-  })
-  .then((result) => console.log(result.data));
-
+makeQuery(query);
 ReactDOM.render(
   // <ApolloProvider client={client}>
   <React.StrictMode>
