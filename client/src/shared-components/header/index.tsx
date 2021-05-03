@@ -1,14 +1,7 @@
 import React from "react";
+import { Navbar } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
-import { Navbar, NavbarBrand } from "react-bootstrap";
-import {
-  BrowserRouter as Router,
-  Link,
-  matchPath,
-  NavLink,
-  Route,
-  Switch,
-} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 type Props = {
   name: string;
