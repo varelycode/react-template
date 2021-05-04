@@ -1,35 +1,11 @@
 import React from "react";
-import Nav from "react-bootstrap/Nav";
-import {
-  Card,
-  CardColumns,
-  CardDeck,
-  Navbar,
-  NavbarBrand,
-} from "react-bootstrap";
-import {
-  BrowserRouter as Router,
-  Link,
-  matchPath,
-  NavLink,
-  Route,
-  Switch,
-} from "react-router-dom";
+import { Card, CardDeck } from "react-bootstrap";
 
 type Props = {
   name?: string;
 };
 
 export const Blog: React.FC<Props> = (props: any) => {
-  const active: React.CSSProperties = {
-    fontWeight: "bold",
-    color: "red",
-  };
-  const inactive: React.CSSProperties = {
-    fontWeight: "bold",
-    color: "black",
-    textDecorationLine: "none",
-  };
   return (
     <CardDeck style={{ marginRight: 40, marginLeft: 40 }}>
       <Card>

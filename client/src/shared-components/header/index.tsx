@@ -1,20 +1,14 @@
 import React from "react";
+import { Navbar } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
-import { Navbar, NavbarBrand } from "react-bootstrap";
-import {
-  BrowserRouter as Router,
-  Link,
-  matchPath,
-  NavLink,
-  Route,
-  Switch,
-} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 type Props = {
   name: string;
 };
 
 export const Navigation: React.FC<Props> = (props: any) => {
+  let isSignedIn = false;
   const active: React.CSSProperties = {
     fontWeight: "bold",
     color: "red",
@@ -59,9 +53,15 @@ export const Navigation: React.FC<Props> = (props: any) => {
         </Nav.Item>
       </Nav>
       <Navbar.Collapse className="justify-content-end">
-        <Navbar.Text>
-          Signed in as: <a href="#login">Mark Otto</a>
-        </Navbar.Text>
+        {isSignedIn ? (
+          <Navbar.Text>
+            Signed in as: <a href="/login">Mark Otto</a>
+          </Navbar.Text>
+        ) : (
+          <Navbar.Text>
+            <a href="/login">Login</a> / <a href="/register">Register</a>
+          </Navbar.Text>
+        )}
       </Navbar.Collapse>
     </Navbar>
   );

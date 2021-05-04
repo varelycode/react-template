@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import "./App.css";
 import { Blog } from "./pages/blog";
+import { Register } from "./pages/register";
 import { Navigation } from "./shared-components/header";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Navigation name="NoSugarPlease" />
       <Switch>
         <Route path="/blog">{<Blog />}</Route>
+        <Route path="/register">{<Register />}</Route>
         <Route path="/users/:id">{/* <Users /> */}</Route>
 
         <Route path="/users">{/* <Users /> */}</Route>
