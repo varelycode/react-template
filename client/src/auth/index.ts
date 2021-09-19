@@ -1,32 +1,20 @@
-import {
-  CognitoIdentityProviderClient,
-  AddCustomAttributesCommand,
-  CognitoIdentityProviderClientConfig,
-  AdminCreateUserCommandInput,
-  AdminCreateUserCommand,
-  CognitoIdentityProvider,
-} from "@aws-sdk/client-cognito-identity-provider";
+import express from "express";
+import { auth } from "express-openid-connect";
 
-const params: CognitoIdentityProviderClientConfig = {
-  region: "us-west",
+const config = {
+  authRequired: false,
+  auth0Logout: true,
+  secret: "a long, randomly-generated string stored in env",
+  baseURL: "http://localhost:3000",
+  clientID: "b55QE0U585CDJjCsQYoluFCvRx0Lbobx",
+  issuerBaseURL: "https://dev-l9iyvtpn.us.auth0.com",
 };
 
-const input: AdminCreateUserCommandInput = {
-  Username: "sillygirl",
-  UserPoolId: "us-west-1_MjG3zr8cy",
-  UserAttributes: [{ Name: "email", Value: "virosas@ucdavis.edu" }],
-};
+const app = express();
+// auth router attaches /login, /logout, and /callback routes to the baseURL
+app.use(auth(config));
 
-// const config: CognitoIdentityProviderClientConfig = {
-//   region: "us-west",
-//   credentials,
-// };
-
-const client = new CognitoIdentityProviderClient(params);
-// export const command = new AddCustomAttributesCommand(params);
-
-const command = new AdminCreateUserCommand(input);
-
-export const data = client.send(command);
-
-//https://nosugarpls/login?response_type=code&client_id=119b2dtmvsmhg7d2rhet74q32p&redirect_uri=http://localhost:3000
+// req.isAuthenticated is provided from the auth router
+app.get("/", (req, res) => {
+  res.send(req.oidc.isAuthenticated() ? "Logged in" : "Logged out");
+});

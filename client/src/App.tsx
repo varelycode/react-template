@@ -10,6 +10,11 @@ import "./App.css";
 import { Blog } from "./pages/blog";
 import { Register } from "./pages/register";
 import { Navigation } from "./shared-components/header";
+import { Banner } from "./shared-components/banner";
+import { Slider } from "./shared-components/slider";
+import { Col, Row } from "react-bootstrap";
+import { Services } from "./shared-components/services";
+import { CustomFooter } from "./shared-components/footer";
 
 function App() {
   return (
@@ -23,20 +28,24 @@ function App() {
         <Route path="/users">{/* <Users /> */}</Route>
         <Route path="/">{/* <Home /> */}</Route>
       </Switch>
+
+      <Row>
+        <Col>
+          <Banner></Banner>
+        </Col>
+        <Col>
+          <Slider></Slider>
+        </Col>
+      </Row>
+
+      <Row>
+        <Services></Services>
+      </Row>
+      <Row>
+        <CustomFooter></CustomFooter>
+      </Row>
     </Router>
   );
-}
-
-function Home() {
-  return <h2>Home</h2>;
-}
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
 }
 
 export default App;

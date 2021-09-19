@@ -2,6 +2,7 @@ import React from "react";
 import { Navbar } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import { NavLink } from "react-router-dom";
+import image from "../../images/GARDEN OF ROSAS.png";
 
 type Props = {
   name: string;
@@ -19,15 +20,28 @@ export const Navigation: React.FC<Props> = (props: any) => {
     textDecorationLine: "none",
   };
   return (
-    <Navbar style={{ marginBottom: 20 }}>
+    <Navbar>
       <Navbar.Brand>
-        <img
-          src="/nosugarpls.svg"
-          height={80}
-          width={170}
-          className="d-inline-block align-top"
-          alt="No Sugar Pls Logo"
-        />
+        <Navbar.Text
+          style={{
+            fontFamily: "Bonheur Royale, cursive",
+            fontSize: "2.3rem",
+            color: "black",
+            margin: 10,
+          }}
+        >
+          Garden of Rosas
+          <h5
+            style={{
+              fontFamily: "Roboto",
+              fontSize: "15px",
+              color: "black",
+              marginTop: "-5px",
+            }}
+          >
+            Landscape and Hardscape Co.
+          </h5>
+        </Navbar.Text>
       </Navbar.Brand>
       <Nav>
         <Nav.Item>

@@ -1,14 +1,11 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { data } from "../auth/index";
 
 type Props = {
   name?: string;
 };
 
 export const Register: React.FC<Props> = (props: any) => {
-  data.then((res) => console.log(res));
-
   return (
     <Container>
       <Row className="justify-content-md-center">
